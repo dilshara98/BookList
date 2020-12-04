@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 
-export default class Books extends React.Component{
+export default class View extends React.Component{
     state={
         books:[],
 
@@ -14,16 +14,13 @@ export default class Books extends React.Component{
             console.log(res.data.results);
             this.setState({books: res.data.results});
         });
-        document.body.style.backgroundColor = "lightblue"
     }
     render(){
         return(
             
             
             <ul>
-                {this.state.books.map(book => <li>{book.list_name}<button  style={{color: 'blue', textAlign:'center', margin:'0.5cm 0.5cm 0.5cm 0.5cm'}} >
-                    <a href="./Components/viewdetails">View Details</a>
-                </button></li>)}
+                {this.state.books.map(book => <li>{book.display_name}</li>)}
                 
              </ul>
                 
